@@ -56,12 +56,12 @@ static struct key keys[] = {
     {MOD|ShiftMask, XK_2, win_to_ws, {.i = 2}},
     {MOD,           XK_3, ws_go,     {.i = 3}},
     {MOD|ShiftMask, XK_3, win_to_ws, {.i = 3}},
-    {MOD,           XK_4, ws_go,     {.i = 4}},
-    {MOD|ShiftMask, XK_4, win_to_ws, {.i = 4}},
-    {MOD,           XK_5, ws_go,     {.i = 5}},
-    {MOD|ShiftMask, XK_5, win_to_ws, {.i = 5}},
-    {MOD,           XK_6, ws_go,     {.i = 6}},
-    {MOD|ShiftMask, XK_6, win_to_ws, {.i = 6}},
+    {MOD,           XK_8, ws_go,     {.i = 4}},
+    {MOD|ShiftMask, XK_8, win_to_ws, {.i = 4}},
+    {MOD,           XK_9, ws_go,     {.i = 5}},
+    {MOD|ShiftMask, XK_9, win_to_ws, {.i = 5}},
+    {MOD,           XK_0, ws_go,     {.i = 6}},
+    {MOD|ShiftMask, XK_0, win_to_ws, {.i = 6}},
 };
 
 #endif
