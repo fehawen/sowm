@@ -1,8 +1,8 @@
-# sowm (*Simple Opinionated Window Manager*)
+# sowm (*~~Simple~~ Shitty Opinionated Window Manager*)
 
 <a href="https://user-images.githubusercontent.com/6799467/66687576-9747c200-ec72-11e9-947d-5b96753eab03.jpg"><img src="https://user-images.githubusercontent.com/6799467/66687576-9747c200-ec72-11e9-947d-5b96753eab03.jpg" width="43%" align="right"></a>
 
-An itsy bitsy floating window manager (*220~ sloc / 24kb compiled!*).
+An itsy bitsy floating window manager (*220~ sloc!*).
 
 - Floating only.
 - Fullscreen toggle.
@@ -70,6 +70,17 @@ Patches available here: https://github.com/dylanaraps/sowm/pulls
     - `DESTDIR` and `PREFIX` are supported.
 4) (Optional) Apply patch with `git apply patches/patch-name`
     - In case of applying multiple patches, it has to be done **manually**.
+
+If you are using GDM, save the following to `/usr/share/xsessions/sowm.desktop`. It is still recommended to start `sowm` from `.xinitrc` or through
+[your own xinit implementation](https://github.com/dylanaraps/bin/blob/dfd9a9ff4555efb1cc966f8473339f37d13698ba/x).
+
+```
+[Desktop Entry]
+Name=sowm
+Comment=This session runs sowm as desktop manager
+Exec=sowm
+Type=Application
+```
 
 
 ## Thanks
