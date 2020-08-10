@@ -3,6 +3,9 @@
 
 #define MOD Mod4Mask
 
+#define BORDER_COLOR "#FFFFFF"
+#define BORDER_WIDTH 5
+
 const char* menu[]    = {"dmn",                     0};
 const char* term[]    = {"st",                      0};
 const char* scrot[]   = {"scr",                     0};
