@@ -3,7 +3,6 @@
 
 #define MOD Mod4Mask
 
-#define BORDER_COLOR "#FFFFFF"
 #define BORDER_WIDTH 5
 
 const char* menu[]    = {"dmn",                     0};
@@ -11,8 +10,7 @@ const char* term[]    = {"st",                      0};
 const char* scrot[]   = {"scr",                     0};
 const char* clock[]   = {"clk",                     0};
 const char* battery[] = {"bat", "notify",           0};
-const char* light[]   = {"rpg", "light",            0};
-const char* dark[]    = {"rpg", "dark",             0};
+const char* palette[] = {"rpg", "g",                0};
 const char* briup[]   = {"xbacklight", "-inc", "5", 0};
 const char* bridown[] = {"xbacklight", "-dec", "5", 0};
 const char* voldown[] = {"pamixer", "-d", "5",      0};
@@ -53,8 +51,7 @@ static struct key keys[] = {
     {MOD, XK_Return,      run, {.com = term}},
     {MOD, XK_t,           run, {.com = clock}},
     {MOD, XK_b,           run, {.com = battery}},
-    {MOD|ShiftMask, XK_a, run, {.com = light}},
-    {MOD|ShiftMask, XK_d, run, {.com = dark}},
+    {MOD|ShiftMask, XK_d, run, {.com = palette}},
 
     {0,   XF86XK_AudioLowerVolume,  run, {.com = voldown}},
     {0,   XF86XK_AudioRaiseVolume,  run, {.com = volup}},

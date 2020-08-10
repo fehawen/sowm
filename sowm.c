@@ -249,7 +249,7 @@ void map_request(XEvent *e) {
     win_add(w);
     cur = list->prev;
 
-    XSetWindowBorder(d, w, getcolor(BORDER_COLOR));
+    XSetWindowBorder(d, w, XWhitePixel(d, s));
     XConfigureWindow(d, w, CWBorderWidth,
                     &(XWindowChanges){.border_width = BORDER_WIDTH});
 
