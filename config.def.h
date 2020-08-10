@@ -2,7 +2,7 @@
 #define CONFIG_H
 
 #define MOD Mod4Mask
-#define ROUND_CORNERS 12
+#define ROUND_CORNERS 18
 
 const char* menu[]    = {"dmn",                     0};
 const char* term[]    = {"st",                      0};
