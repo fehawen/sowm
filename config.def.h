@@ -3,15 +3,14 @@
 
 #define MOD Mod4Mask
 
-#define BORDER_COLOR "#eeeeee"
+#define BORDER_COLOR "#285455"
 #define BORDER_WIDTH 4
 
 const char* menu[]    = {"dmn",                     0};
-const char* term[]    = {"st",                      0};
+const char* term[]    = {"xterm",                   0};
 const char* scrot[]   = {"scr",                     0};
 const char* clock[]   = {"clk",                     0};
 const char* battery[] = {"bat", "notify",           0};
-const char* palette[] = {"rpg", "g",                0};
 const char* briup[]   = {"xbacklight", "-inc", "5", 0};
 const char* bridown[] = {"xbacklight", "-dec", "5", 0};
 const char* voldown[] = {"pamixer", "-d", "5",      0};
@@ -19,10 +18,10 @@ const char* volup[]   = {"pamixer", "-i", "5",      0};
 const char* volmute[] = {"pamixer", "-t",           0};
 
 static struct key keys[] = {
-    {MOD,  XK_q,  win_kill,   {0}},
-    {MOD,  XK_c,  win_center, {0}},
-    {MOD,  XK_f,  win_fs,     {0}},
-    {MOD,  XK_m,  win_mx,     {0}},
+    {MOD|ShiftMask,  XK_q,  win_kill,   {0}},
+    {MOD,            XK_c,  win_center, {0}},
+    {MOD,            XK_f,  win_fs,     {0}},
+    {MOD,            XK_m,  win_mx,     {0}},
 
     {MOD,              XK_k,  win_move,  {.com = (const char*[]){"move",   "n"}, .i = 100}},
     {MOD,              XK_j,  win_move,  {.com = (const char*[]){"move",   "s"}, .i = 100}},
@@ -52,7 +51,6 @@ static struct key keys[] = {
     {MOD, XK_Return,      run, {.com = term}},
     {MOD, XK_t,           run, {.com = clock}},
     {MOD, XK_b,           run, {.com = battery}},
-    {MOD|ShiftMask, XK_d, run, {.com = palette}},
 
     {0,   XF86XK_AudioLowerVolume,  run, {.com = voldown}},
     {0,   XF86XK_AudioRaiseVolume,  run, {.com = volup}},
