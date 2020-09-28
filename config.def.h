@@ -3,17 +3,16 @@
 
 #define MOD Mod4Mask
 
-const char* menu[]    = {"dmn",                     0};
-const char* term[]    = {"xterm",                   0};
-const char* scrot[]   = {"scr",                     0};
-const char* clock[]   = {"clk",                     0};
-const char* battery[] = {"bat", "notify",           0};
-const char* palette[] = {"rpg", "g",                0};
-const char* briup[]   = {"xbacklight", "-inc", "5", 0};
-const char* bridown[] = {"xbacklight", "-dec", "5", 0};
-const char* voldown[] = {"pamixer", "-d", "5",      0};
-const char* volup[]   = {"pamixer", "-i", "5",      0};
-const char* volmute[] = {"pamixer", "-t",           0};
+const char* menu[]     = {"dmn",                     0};
+const char* term[]     = {"xterm",                   0};
+const char* scrot[]    = {"scr",                     0};
+const char* darkpal[]  = {"rpg", "d",                0};
+const char* lightpal[] = {"rpg", "l",                0};
+const char* briup[]    = {"xbacklight", "-inc", "5", 0};
+const char* bridown[]  = {"xbacklight", "-dec", "5", 0};
+const char* voldown[]  = {"pamixer", "-d", "5",      0};
+const char* volup[]    = {"pamixer", "-i", "5",      0};
+const char* volmute[]  = {"pamixer", "-t",           0};
 
 static struct key keys[] = {
     {MOD|ShiftMask,    XK_q,  win_kill,   {0}},
@@ -47,9 +46,8 @@ static struct key keys[] = {
     {MOD, XK_d,           run, {.com = menu}},
     {MOD, XK_p,           run, {.com = scrot}},
     {MOD, XK_Return,      run, {.com = term}},
-    {MOD, XK_t,           run, {.com = clock}},
-    {MOD, XK_b,           run, {.com = battery}},
-    {MOD|ShiftMask, XK_d, run, {.com = palette}},
+    {MOD|ShiftMask, XK_d, run, {.com = darkpal}},
+    {MOD|ShiftMask, XK_a, run, {.com = lightpal}},
 
     {0,   XF86XK_AudioLowerVolume,  run, {.com = voldown}},
     {0,   XF86XK_AudioRaiseVolume,  run, {.com = volup}},
