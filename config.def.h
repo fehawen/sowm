@@ -3,8 +3,8 @@
 
 #define MOD Mod4Mask
 
-#define BORDER_COLOR "#15160f"
-#define BORDER_WIDTH 4
+#define BORDER_COLOR "#1c1d17"
+#define BORDER_WIDTH 6
 
 const char* menu[]    = {"dmn",                     0};
 const char* term[]    = {"xterm",                   0};
