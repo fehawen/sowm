@@ -6,8 +6,8 @@
 const char* menu[]     = {"dmn",                     0};
 const char* term[]     = {"xterm",                   0};
 const char* scrot[]    = {"scr",                     0};
-const char* darkpal[]  = {"rpg", "d",                0};
-const char* lightpal[] = {"rpg", "l",                0};
+const char* darkpal[]  = {"pal", "dark",             0};
+const char* lightpal[] = {"pal", "light",            0};
 const char* briup[]    = {"xbacklight", "-inc", "5", 0};
 const char* bridown[]  = {"xbacklight", "-dec", "5", 0};
 const char* voldown[]  = {"pamixer", "-d", "5",      0};
@@ -18,7 +18,6 @@ static struct key keys[] = {
     {MOD|ShiftMask,    XK_q,  win_kill,   {0}},
     {MOD,              XK_c,  win_center, {0}},
     {MOD,              XK_f,  win_fs,     {0}},
-    {MOD,              XK_m,  win_mx,     {0}},
 
     {MOD,              XK_k,  win_move,  {.com = (const char*[]){"move",   "n"}, .i = 100}},
     {MOD,              XK_j,  win_move,  {.com = (const char*[]){"move",   "s"}, .i = 100}},
