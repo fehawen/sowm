@@ -21,7 +21,6 @@ static struct key keys[] = {
     {MOD|ShiftMask,  XK_q,  win_kill,   {0}},
     {MOD,            XK_c,  win_center, {0}},
     {MOD,            XK_f,  win_fs,     {0}},
-    {MOD,            XK_m,  win_mx,     {0}},
 
     {MOD,              XK_k,  win_move,  {.com = (const char*[]){"move",   "n"}, .i = 100}},
     {MOD,              XK_j,  win_move,  {.com = (const char*[]){"move",   "s"}, .i = 100}},
