@@ -6,8 +6,8 @@
 const char* menu[]     = {"dmn",                     0};
 const char* term[]     = {"xterm",                   0};
 const char* scrot[]    = {"scr",                     0};
-const char* darkpal[]  = {"pal", "dark",             0};
-const char* lightpal[] = {"pal", "light",            0};
+const char* darkpal[]  = {"rpg", "d",                0};
+const char* lightpal[] = {"rpg", "l",                0};
 const char* briup[]    = {"xbacklight", "-inc", "5", 0};
 const char* bridown[]  = {"xbacklight", "-dec", "5", 0};
 const char* voldown[]  = {"pamixer", "-d", "5",      0};
