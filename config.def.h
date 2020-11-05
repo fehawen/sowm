@@ -2,6 +2,10 @@
 #define CONFIG_H
 
 #define MOD Mod4Mask
+#define TITLE_HEIGHT  60
+#define TITLE_COLOR "#FFFFFF"
+#define BORDER_COLOR "#FFFFFF"
+#define BORDER_WIDTH 10
 
 const char* menu[]     = {"dmn",                     0};
 const char* term[]     = {"xterm",                   0};
