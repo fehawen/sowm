@@ -22,20 +22,10 @@ static struct key keys[] = {
     {MOD,              XK_l,  win_move,  {.com = (const char*[]){"move",   "e"}, .i = 100}},
     {MOD,              XK_h,  win_move,  {.com = (const char*[]){"move",   "w"}, .i = 100}},
 
-    {MOD|Mod1Mask,     XK_k,  win_move,  {.com = (const char*[]){"move",   "n"}, .i = 25}},
-    {MOD|Mod1Mask,     XK_j,  win_move,  {.com = (const char*[]){"move",   "s"}, .i = 25}},
-    {MOD|Mod1Mask,     XK_l,  win_move,  {.com = (const char*[]){"move",   "e"}, .i = 25}},
-    {MOD|Mod1Mask,     XK_h,  win_move,  {.com = (const char*[]){"move",   "w"}, .i = 25}},
-
     {MOD|ShiftMask,    XK_k,  win_move,  {.com = (const char*[]){"resize", "n"}, .i = 100}},
     {MOD|ShiftMask,    XK_j,  win_move,  {.com = (const char*[]){"resize", "s"}, .i = 100}},
     {MOD|ShiftMask,    XK_l,  win_move,  {.com = (const char*[]){"resize", "e"}, .i = 100}},
     {MOD|ShiftMask,    XK_h,  win_move,  {.com = (const char*[]){"resize", "w"}, .i = 100}},
-
-    {MOD|ControlMask,  XK_k,  win_move,  {.com = (const char*[]){"resize", "n"}, .i = 25}},
-    {MOD|ControlMask,  XK_j,  win_move,  {.com = (const char*[]){"resize", "s"}, .i = 25}},
-    {MOD|ControlMask,  XK_l,  win_move,  {.com = (const char*[]){"resize", "e"}, .i = 25}},
-    {MOD|ControlMask,  XK_h,  win_move,  {.com = (const char*[]){"resize", "w"}, .i = 25}},
 
     {MOD,           XK_Tab, win_next,   {0}},
     {MOD|ShiftMask, XK_Tab, win_prev,   {0}},
