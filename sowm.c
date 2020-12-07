@@ -52,9 +52,25 @@ unsigned long getcolor(const char *col) {
     return (!XAllocNamedColor(d, m, col, &c, &c)) ? 0 : c.pixel;
 }
 
+void win_border(Window w, const char *col) {
+    XSetWindowBorder(d, w, getcolor(col));
+    XConfigureWindow(d, w, CWBorderWidth,
+        &(XWindowChanges){.border_width = BORDER_WIDTH});
+}
+
+void win_active(Window w) {
+    for win if (c->w == w) {
+        win_border(w, BORDER_COLOR_ACTIVE);
+    } else {
+        win_border(c->w, BORDER_COLOR_INACTIVE);
+    }
+}
+
 void win_focus(client *c) {
     cur = c;
     XSetInputFocus(d, cur->w, RevertToParent, CurrentTime);
+    win_active(cur->w);
+
 }
 
 void notify_destroy(XEvent *e) {
@@ -66,8 +82,6 @@ void notify_destroy(XEvent *e) {
 void notify_enter(XEvent *e) {
     while(XCheckTypedEvent(d, EnterNotify, e));
     while(XCheckTypedWindowEvent(d, mouse.subwindow, MotionNotify, e));
-
-    for win if (c->w == e->xcrossing.window) win_focus(c);
 }
 
 void notify_motion(XEvent *e) {
@@ -96,6 +110,10 @@ void key_press(XEvent *e) {
 
 void button_press(XEvent *e) {
     if (!e->xbutton.subwindow) return;
+
+    if (e->xbutton.button == 1) {
+        for win if (c->w == e->xbutton.subwindow) win_focus(c);
+    }
 
     win_size(e->xbutton.subwindow, &wx, &wy, &ww, &wh);
     XRaiseWindow(d, e->xbutton.subwindow);
@@ -159,7 +177,7 @@ void win_fs(const Arg arg) {
 
     if ((cur->f = cur->f ? 0 : 1)) {
         win_size(cur->w, &cur->wx, &cur->wy, &cur->ww, &cur->wh);
-        XMoveResizeWindow(d, cur->w, BORDER_WIDTH, BORDER_WIDTH, (sw - (2 * BORDER_WIDTH)), (sh - (2 * BORDER_WIDTH)));
+        XMoveResizeWindow(d, cur->w, 0, 0, sw, sh);
     } else {
         XMoveResizeWindow(d, cur->w, cur->wx, cur->wy, cur->ww, cur->wh);
     }
@@ -236,10 +254,6 @@ void map_request(XEvent *e) {
     win_add(w);
     cur = list->prev;
 
-    XSetWindowBorder(d, w, getcolor(BORDER_COLOR));
-    XConfigureWindow(d, w, CWBorderWidth,
-                    &(XWindowChanges){.border_width = BORDER_WIDTH});
-
     if (wx + wy == 0) win_center((Arg){0});
 
     XMapWindow(d, w);
@@ -272,10 +286,9 @@ void input_grab(Window root) {
                         True, GrabModeAsync, GrabModeAsync);
 
     for (i = 1; i < 4; i += 2)
-        for (j = 0; j < sizeof(modifiers)/sizeof(*modifiers); j++)
-            XGrabButton(d, i, MOD | modifiers[j], root, True,
-                ButtonPressMask|ButtonReleaseMask|PointerMotionMask,
-                GrabModeAsync, GrabModeAsync, 0, 0);
+        XGrabButton(d, i, MOD, root, True,
+            ButtonPressMask|ButtonReleaseMask|PointerMotionMask,
+            GrabModeAsync, GrabModeAsync, 0, 0);
 
     XFreeModifiermap(modmap);
 }

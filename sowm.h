@@ -34,6 +34,8 @@ typedef struct client {
 } client;
 
 unsigned long getcolor(const char *col);
+void win_border(Window w, const char *col);
+void win_active(Window w);
 void button_press(XEvent *e);
 void button_release(XEvent *e);
 void configure_request(XEvent *e);
