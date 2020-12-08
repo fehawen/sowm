@@ -286,9 +286,10 @@ void input_grab(Window root) {
                         True, GrabModeAsync, GrabModeAsync);
 
     for (i = 1; i < 4; i += 2)
-        XGrabButton(d, i, MOD, root, True,
-            ButtonPressMask|ButtonReleaseMask|PointerMotionMask,
-            GrabModeAsync, GrabModeAsync, 0, 0);
+        for (j = 0; j < sizeof(modifiers)/sizeof(*modifiers); j++)
+            XGrabButton(d, i, MOD | modifiers[j], root, True,
+                ButtonPressMask|ButtonReleaseMask|PointerMotionMask,
+                GrabModeAsync, GrabModeAsync, 0, 0);
 
     XFreeModifiermap(modmap);
 }
