@@ -5,9 +5,7 @@
 
 const char* menu[]     = {"dmn",                     0};
 const char* term[]     = {"xterm",                   0};
-const char* scrot[]   = {"scr",                     0};
-const char* clock[]   = {"clk",                     0};
-const char* battery[] = {"bat", "notify",           0};
+const char* scrot[]    = {"scr",                     0};
 const char* briup[]    = {"xbacklight", "-inc", "5", 0};
 const char* bridown[]  = {"xbacklight", "-dec", "5", 0};
 const char* voldown[]  = {"pamixer", "-d", "5",      0};
@@ -19,15 +17,15 @@ static struct key keys[] = {
     {MOD,              XK_c,  win_center, {0}},
     {MOD,              XK_f,  win_fs,     {0}},
 
-    {MOD,              XK_k,  win_move,  {.com = (const char*[]){"move",   "n"}, .i = 100}},
-    {MOD,              XK_j,  win_move,  {.com = (const char*[]){"move",   "s"}, .i = 100}},
-    {MOD,              XK_l,  win_move,  {.com = (const char*[]){"move",   "e"}, .i = 100}},
-    {MOD,              XK_h,  win_move,  {.com = (const char*[]){"move",   "w"}, .i = 100}},
+    {MOD,              XK_k,  win_move,  {.com = (const char*[]){"move",   "n"}, .i = 45}},
+    {MOD,              XK_j,  win_move,  {.com = (const char*[]){"move",   "s"}, .i = 45}},
+    {MOD,              XK_l,  win_move,  {.com = (const char*[]){"move",   "e"}, .i = 80}},
+    {MOD,              XK_h,  win_move,  {.com = (const char*[]){"move",   "w"}, .i = 80}},
 
-    {MOD|ShiftMask,    XK_k,  win_move,  {.com = (const char*[]){"resize", "n"}, .i = 100}},
-    {MOD|ShiftMask,    XK_j,  win_move,  {.com = (const char*[]){"resize", "s"}, .i = 100}},
-    {MOD|ShiftMask,    XK_l,  win_move,  {.com = (const char*[]){"resize", "e"}, .i = 100}},
-    {MOD|ShiftMask,    XK_h,  win_move,  {.com = (const char*[]){"resize", "w"}, .i = 100}},
+    {MOD|ShiftMask,    XK_k,  win_move,  {.com = (const char*[]){"resize", "n"}, .i = 45}},
+    {MOD|ShiftMask,    XK_j,  win_move,  {.com = (const char*[]){"resize", "s"}, .i = 45}},
+    {MOD|ShiftMask,    XK_l,  win_move,  {.com = (const char*[]){"resize", "e"}, .i = 80}},
+    {MOD|ShiftMask,    XK_h,  win_move,  {.com = (const char*[]){"resize", "w"}, .i = 80}},
 
     {MOD,           XK_Tab, win_next,   {0}},
     {MOD|ShiftMask, XK_Tab, win_prev,   {0}},
@@ -35,8 +33,6 @@ static struct key keys[] = {
     {MOD, XK_d,           run, {.com = menu}},
     {MOD, XK_p,           run, {.com = scrot}},
     {MOD, XK_Return,      run, {.com = term}},
-    {MOD, XK_t,           run, {.com = clock}},
-    {MOD, XK_b,           run, {.com = battery}},
 
     {0,   XF86XK_AudioLowerVolume,  run, {.com = voldown}},
     {0,   XF86XK_AudioRaiseVolume,  run, {.com = volup}},
