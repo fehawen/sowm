@@ -52,9 +52,24 @@ unsigned long getcolor(const char *col) {
     return (!XAllocNamedColor(d, m, col, &c, &c)) ? 0 : c.pixel;
 }
 
+void win_border(Window w, const char *col) {
+    XSetWindowBorder(d, w, getcolor(col));
+    XConfigureWindow(d, w, CWBorderWidth,
+        &(XWindowChanges){.border_width = BORDER_WIDTH});
+}
+
+void win_active(Window w) {
+    for win if (c->w == w) {
+        win_border(w, BORDER_COLOR_ACTIVE);
+    } else {
+        win_border(c->w, BORDER_COLOR_INACTIVE);
+    }
+}
+
 void win_focus(client *c) {
     cur = c;
     XSetInputFocus(d, cur->w, RevertToParent, CurrentTime);
+    win_active(cur->w);
 }
 
 void notify_destroy(XEvent *e) {
@@ -159,7 +174,7 @@ void win_fs(const Arg arg) {
 
     if ((cur->f = cur->f ? 0 : 1)) {
         win_size(cur->w, &cur->wx, &cur->wy, &cur->ww, &cur->wh);
-        XMoveResizeWindow(d, cur->w, BORDER_WIDTH, BORDER_WIDTH, (sw - (2 * BORDER_WIDTH)), (sh - (2 * BORDER_WIDTH)));
+        XMoveResizeWindow(d, cur->w, 0, 0, sw, sh);
     } else {
         XMoveResizeWindow(d, cur->w, cur->wx, cur->wy, cur->ww, cur->wh);
     }
@@ -235,10 +250,6 @@ void map_request(XEvent *e) {
     win_size(w, &wx, &wy, &ww, &wh);
     win_add(w);
     cur = list->prev;
-
-    XSetWindowBorder(d, w, getcolor(BORDER_COLOR));
-    XConfigureWindow(d, w, CWBorderWidth,
-                    &(XWindowChanges){.border_width = BORDER_WIDTH});
 
     if (wx + wy == 0) win_center((Arg){0});
 
