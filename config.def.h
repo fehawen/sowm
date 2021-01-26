@@ -3,9 +3,9 @@
 
 #define MOD Mod4Mask
 
-#define BORDER_COLOR_ACTIVE "#F4F5F2"
-#define BORDER_COLOR_INACTIVE "#526170"
-#define BORDER_WIDTH 6
+#define BORDER_COLOR_ACTIVE "#a3ebf5"
+#define BORDER_COLOR_INACTIVE "#497284"
+#define BORDER_WIDTH 4
 
 const char* menu[]    = {"dmn",                     0};
 const char* term[]    = {"xterm",                   0};
@@ -23,15 +23,15 @@ static struct key keys[] = {
     {MOD,            XK_c,  win_center, {0}},
     {MOD,            XK_f,  win_fs,     {0}},
 
-    {MOD,              XK_k,  win_move,  {.com = (const char*[]){"move",   "n"}, .i = 100}},
-    {MOD,              XK_j,  win_move,  {.com = (const char*[]){"move",   "s"}, .i = 100}},
-    {MOD,              XK_l,  win_move,  {.com = (const char*[]){"move",   "e"}, .i = 100}},
-    {MOD,              XK_h,  win_move,  {.com = (const char*[]){"move",   "w"}, .i = 100}},
+    {MOD,              XK_k,  win_move,  {.com = (const char*[]){"move",   "n"}, .i = 45}},
+    {MOD,              XK_j,  win_move,  {.com = (const char*[]){"move",   "s"}, .i = 45}},
+    {MOD,              XK_l,  win_move,  {.com = (const char*[]){"move",   "e"}, .i = 80}},
+    {MOD,              XK_h,  win_move,  {.com = (const char*[]){"move",   "w"}, .i = 80}},
 
-    {MOD|ShiftMask,    XK_k,  win_move,  {.com = (const char*[]){"resize", "n"}, .i = 100}},
-    {MOD|ShiftMask,    XK_j,  win_move,  {.com = (const char*[]){"resize", "s"}, .i = 100}},
-    {MOD|ShiftMask,    XK_l,  win_move,  {.com = (const char*[]){"resize", "e"}, .i = 100}},
-    {MOD|ShiftMask,    XK_h,  win_move,  {.com = (const char*[]){"resize", "w"}, .i = 100}},
+    {MOD|ShiftMask,    XK_k,  win_move,  {.com = (const char*[]){"resize", "n"}, .i = 45}},
+    {MOD|ShiftMask,    XK_j,  win_move,  {.com = (const char*[]){"resize", "s"}, .i = 45}},
+    {MOD|ShiftMask,    XK_l,  win_move,  {.com = (const char*[]){"resize", "e"}, .i = 80}},
+    {MOD|ShiftMask,    XK_h,  win_move,  {.com = (const char*[]){"resize", "w"}, .i = 80}},
 
     {MOD,           XK_Tab, win_next,   {0}},
     {MOD|ShiftMask, XK_Tab, win_prev,   {0}},
