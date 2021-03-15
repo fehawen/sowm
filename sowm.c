@@ -187,13 +187,12 @@ void win_fs(const Arg arg) {
 
     if ((cur->f = cur->f ? 0 : 1)) {
         win_size(cur->w, &cur->wx, &cur->wy, &cur->ww, &cur->wh);
-        XMoveResizeWindow(d, cur->w, 100, 100, (sw - 200), (sh - 200));
-
+        XMoveResizeWindow(d, cur->w, 0, 0, sw, sh);
+        win_round_corners(cur->w, 0);
     } else {
         XMoveResizeWindow(d, cur->w, cur->wx, cur->wy, cur->ww, cur->wh);
+        win_round_corners(cur->w, ROUND_CORNERS);
     }
-
-    win_round_corners(cur->w, ROUND_CORNERS);
 }
 
 void win_to_ws(const Arg arg) {
